@@ -10,6 +10,10 @@
   "author": "Leon Song",
   "license": "MIT",
   "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sxwei123/azure-log-analytics-data-collector-client"
+  },
   "publishConfig": {
     "access": "public"
   },

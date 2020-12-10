@@ -1,9 +1,12 @@
 {
   "name": "azure-log-analytics-data-collector-client",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Node.js wrapper for Azure Log Analytics data collector API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
   "engines": {
     "node": ">=10"
   },
@@ -14,6 +17,11 @@
     "type": "git",
     "url": "git://github.com/sxwei123/azure-log-analytics-data-collector-client"
   },
+  "keywords": [
+    "Azure",
+    "Log Analytics",
+    "Data collector"
+  ],
   "publishConfig": {
     "access": "public"
   },
@@ -23,6 +31,7 @@
     "typescript": "^4.1.2"
   },
   "scripts": {
+    "build": "tsc",
     "prepublish": "tsc"
   },
   "dependencies": {

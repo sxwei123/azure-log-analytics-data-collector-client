@@ -11,6 +11,8 @@ yarn add azure-log-analytics-data-collector-client
 ## Usage
 
 ```ts
+import { DataCollectorClient } from "azure-log-analytics-data-collector-client";
+
 const client = new DataCollectorClient(
   "WORKSPACE_ID",
   "PRIMARY_KEY_OR_SECONDARY_KEY"

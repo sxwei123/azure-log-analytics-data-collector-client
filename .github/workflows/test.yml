@@ -1,0 +1,24 @@
+name: "Test"
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  release:
+    name: Build and run test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "10.x"
+          registry-url: "https://registry.npmjs.org"
+      - run: yarn install
+      - run: yarn test
+        env:
+          LOG_ANALYTICS_WORKSPACE_ID: ${{secrets.LOG_ANALYTICS_WORKSPACE_ID}}
+          LOG_ANALYTICS_AGENT_KEY: ${{secrets.LOG_ANALYTICS_AGENT_KEY}}

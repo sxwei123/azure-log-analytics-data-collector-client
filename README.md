@@ -27,3 +27,5 @@ client
   ])
   .then(console.log);
 ```
+
+To get your `WORKSPACE_ID` and `PRIMARY_KEY_OR_SECONDARY_KEY`, in your workspace go to `advanced settings` -> `connected resources` -> `Agents management`.

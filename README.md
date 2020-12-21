@@ -29,3 +29,12 @@ client
 ```
 
 To get your `WORKSPACE_ID` and `PRIMARY_KEY_OR_SECONDARY_KEY`, in your workspace go to `advanced settings` -> `connected resources` -> `Agents management`.
+
+## Response Object
+
+| Property  | Optional |                                                                                                             Description |
+| --------- | :------: | ----------------------------------------------------------------------------------------------------------------------: |
+| code      |    no    |                                                                                                      HTTP response code |
+| status    |    no    |                                                                                                    HTTP response status |
+| errorCode |   yes    | [Error code](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-collector-api#return-codes) from server |
+| errorMsg  |   yes    |                                                                                               Error message from server |

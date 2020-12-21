@@ -1,6 +1,8 @@
 import { createHmac } from "crypto";
 import fetch from "node-fetch";
 
+import { APIResponse } from "./Response";
+
 // Refer to https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-collector-api
 
 const API_VERSION = "2016-04-01";
@@ -23,7 +25,7 @@ export class DataCollectorClient {
     logType: string,
     logs: any[],
     timeGenerated?: string
-  ): Promise<number> {
+  ): Promise<APIResponse> {
     const postPayload = JSON.stringify(logs);
     const contentLength = Buffer.byteLength(postPayload, "utf8");
     const gmtTime = new Date().toUTCString();
@@ -56,12 +58,26 @@ export class DataCollectorClient {
 
     const url = `https://${this.workspaceId}.ods.opinsights.azure.com/api/logs?api-version=${API_VERSION}`;
 
-    const result = await fetch(url, {
+    const res = await fetch(url, {
       method: "post",
       body: postPayload,
       headers,
     });
 
-    return result.status;
+    if (res.status === 200) {
+      return {
+        code: 200,
+        status: "OK",
+      };
+    }
+
+    const errorDetail = await res.json();
+
+    return {
+      code: res.status,
+      status: res.statusText,
+      errorCode: errorDetail.Error,
+      errorMsg: errorDetail.Message,
+    };
   }
 }

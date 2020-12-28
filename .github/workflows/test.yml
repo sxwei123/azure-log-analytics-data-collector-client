@@ -9,16 +9,20 @@ jobs:
   release:
     name: Build and run test
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x, 14.x]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Setup node.js
+      - name: Setup node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
-          node-version: "10.x"
+          node-version: ${{ matrix.node-version }}
           registry-url: "https://registry.npmjs.org"
       - run: yarn install
       - run: yarn test
         env:
           LOG_ANALYTICS_WORKSPACE_ID: ${{secrets.LOG_ANALYTICS_WORKSPACE_ID}}
           LOG_ANALYTICS_AGENT_KEY: ${{secrets.LOG_ANALYTICS_AGENT_KEY}}
+          NODE_ENV: test

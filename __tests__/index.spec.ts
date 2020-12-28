@@ -1,4 +1,4 @@
-import { DataCollectorClient } from "..";
+import { DataCollectorClient } from "../src";
 
 describe("The data collector client", () => {
   const { LOG_ANALYTICS_AGENT_KEY, LOG_ANALYTICS_WORKSPACE_ID } = process.env;

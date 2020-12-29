@@ -3,8 +3,6 @@ import fetch from "node-fetch";
 
 import { APIResponse } from "./Response";
 
-// Refer to https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-collector-api
-
 const API_VERSION = "2016-04-01";
 
 export class DataCollectorClient {
@@ -64,20 +62,22 @@ export class DataCollectorClient {
       headers,
     });
 
-    if (res.status === 200) {
+    const { status, statusText } = res;
+
+    if (status === 200) {
       return {
         code: 200,
         status: "OK",
       };
     }
 
-    const errorDetail = await res.json();
+    const { Error: errorCode, Message: errorMsg } = await res.json();
 
     return {
-      code: res.status,
-      status: res.statusText,
-      errorCode: errorDetail.Error,
-      errorMsg: errorDetail.Message,
+      code: status,
+      status: statusText,
+      errorCode,
+      errorMsg,
     };
   }
 }

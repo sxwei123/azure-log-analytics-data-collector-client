@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "target": "es5",
+    "lib": ["es2018"],
+    "target": "es2018",
     "module": "commonjs",
     "moduleResolution": "node",
     "strict": true,
@@ -9,8 +10,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "rootDir": "src",
-    "outDir": "dist",
-    "removeComments": true
+    "outDir": "dist"
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist", "**/__tests__/*"]

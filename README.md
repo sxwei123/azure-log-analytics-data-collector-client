@@ -10,6 +10,30 @@ yarn add azure-log-analytics-data-collector-client
 
 ## Usage
 
+Javascript:
+
+```js
+const {
+  DataCollectorClient,
+} = require("azure-log-analytics-data-collector-client");
+
+const client = new DataCollectorClient(
+  "WORKSPACE_ID",
+  "PRIMARY_KEY_OR_SECONDARY_KEY"
+);
+
+client
+  .send("MyLogs", [
+    {
+      level: "info",
+      message: "server starts",
+    },
+  ])
+  .then(console.log);
+```
+
+Typescript:
+
 ```ts
 import { DataCollectorClient } from "azure-log-analytics-data-collector-client";
 

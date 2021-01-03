@@ -1,5 +1,7 @@
 # Azure Log Analytics Data Collector Client
 
+![Test status](https://github.com/sxwei123/azure-log-analytics-data-collector-client/workflows/Test/badge.svg?branch=master)
+
 A node.js wrapper for [Azure Monitor HTTP Data Collector API](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-collector-api).
 
 ## Installation

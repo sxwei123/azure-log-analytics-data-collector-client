@@ -21,6 +21,7 @@ export class DataCollectorClient {
    */
   async send(
     logType: string,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     logs: any[],
     timeGenerated?: string
   ): Promise<APIResponse> {

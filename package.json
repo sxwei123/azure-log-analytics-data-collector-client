@@ -22,7 +22,7 @@
     "Azure Monitor",
     "Log Analytics",
     "Data Collector API",
-    "NodeJS"
+    "NodeJS Wrapper"
   ],
   "publishConfig": {
     "access": "public"

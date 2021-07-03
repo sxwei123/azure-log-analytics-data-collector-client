@@ -81,6 +81,14 @@ Please note that only alphanumeric and underscore can be used as table name. the
 | errorCode |   yes    | [Error code](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-collector-api#return-codes) from server |
 | errorMsg  |   yes    |                                                                                               Error message from server |
 
+## Local Development
+
+To run the integration test locally, grab the workspace id and the agent key and then run:
+
+```sh
+LOG_ANALYTICS_WORKSPACE_ID=<your_workspace_id> LOG_ANALYTICS_AGENT_KEY=<your_agent_key> yarn test
+```
+
 ## License
 
 MIT

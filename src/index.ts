@@ -1,7 +1,7 @@
 import { createHmac } from "crypto";
 import fetch from "node-fetch";
 
-import { APIResponse } from "./Response";
+import { APIResponse, AzureResponse } from "./Response";
 
 const API_VERSION = "2016-04-01";
 
@@ -72,7 +72,8 @@ export class DataCollectorClient {
       };
     }
 
-    const { Error: errorCode, Message: errorMsg } = await res.json();
+    const { Error: errorCode, Message: errorMsg } =
+      (await res.json()) as AzureResponse;
 
     return {
       code: status,

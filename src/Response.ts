@@ -8,3 +8,8 @@ export interface APIResponse {
   // error message from server
   errorMsg?: string;
 }
+
+export interface AzureResponse {
+  Error: string;
+  Message: string;
+}

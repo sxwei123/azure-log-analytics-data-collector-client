@@ -1,6 +1,6 @@
 {
   "name": "azure-log-analytics-data-collector-client",
-  "version": "2.2.7",
+  "version": "2.2.8",
   "description": "Node.js wrapper for Azure Log Analytics data collector API",
   "main": "./dist/index.js",
   "exports": "./dist/index.js",
@@ -47,6 +47,6 @@
     "lint": "eslint . --ext .ts"
   },
   "dependencies": {
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.7"
   }
 }

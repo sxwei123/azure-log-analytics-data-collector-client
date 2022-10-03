@@ -8,7 +8,8 @@ const API_VERSION = "2016-04-01";
 export class DataCollectorClient {
   constructor(
     private readonly workspaceId: string,
-    private readonly sharedKey: string
+    private readonly sharedKey: string,
+    private readonly serviceName?: string
   ) {}
 
   /**
@@ -48,8 +49,9 @@ export class DataCollectorClient {
     const headers: { [headerName: string]: string } = {
       "Content-Type": "application/json",
       Authorization: authorization,
-      "Log-Type": logType,
+      "Log-Type": this.serviceName ?`${this.serviceName}_${logType}` : logType,
       "x-ms-date": gmtTime,
+      "time-generated-field": ""
     };
     if (timeGenerated) {
       headers["time-generated-field"] = timeGenerated;

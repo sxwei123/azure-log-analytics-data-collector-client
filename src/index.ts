@@ -9,7 +9,7 @@ export class DataCollectorClient {
   constructor(
     private readonly workspaceId: string,
     private readonly sharedKey: string,
-    private readonly host: string
+    private readonly host: string | undefined
   ) { }
 
   /**
@@ -56,7 +56,7 @@ export class DataCollectorClient {
       headers["time-generated-field"] = timeGenerated;
     }
 
-    const hostUrl = (this.host === null || this.host.trim() === "") ? "ods.opinsights.azure.com" : "${this.host}";
+    const hostUrl = (this.host === null || this.host === undefined) ? "ods.opinsights.azure.com" : this.host;
     const url = `https://${this.workspaceId}.${hostUrl}/api/logs?api-version=${API_VERSION}`;
 
     const res = await fetch(url, {

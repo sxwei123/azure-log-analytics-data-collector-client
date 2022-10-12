@@ -1,6 +1,6 @@
 {
   "name": "azure-log-analytics-data-collector",
-  "version": "2.2.9",
+  "version": "2.2.10",
   "description": "Node.js wrapper for Azure Log Analytics data collector API",
   "main": "./dist/index.js",
   "exports": "./dist/index.js",

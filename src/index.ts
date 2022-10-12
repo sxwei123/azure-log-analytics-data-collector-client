@@ -8,8 +8,9 @@ const API_VERSION = "2016-04-01";
 export class DataCollectorClient {
   constructor(
     private readonly workspaceId: string,
-    private readonly sharedKey: string
-  ) {}
+    private readonly sharedKey: string,
+    private readonly host: string
+  ) { }
 
   /**
    *
@@ -55,7 +56,8 @@ export class DataCollectorClient {
       headers["time-generated-field"] = timeGenerated;
     }
 
-    const url = `https://${this.workspaceId}.ods.opinsights.azure.com/api/logs?api-version=${API_VERSION}`;
+    const hostUrl = (this.host === null || this.host.trim() === "") ? "ods.opinsights.azure.com" : "${this.host}";
+    const url = `https://${this.workspaceId}.${hostUrl}/api/logs?api-version=${API_VERSION}`;
 
     const res = await fetch(url, {
       method: "post",

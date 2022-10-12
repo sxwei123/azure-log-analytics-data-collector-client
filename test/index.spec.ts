@@ -1,16 +1,17 @@
 import { DataCollectorClient } from "../src";
 
 describe("The data collector client", () => {
-  const { LOG_ANALYTICS_AGENT_KEY, LOG_ANALYTICS_WORKSPACE_ID } = process.env;
+  const { LOG_ANALYTICS_HOST, LOG_ANALYTICS_AGENT_KEY, LOG_ANALYTICS_WORKSPACE_ID } = process.env;
 
-  if (!LOG_ANALYTICS_AGENT_KEY || !LOG_ANALYTICS_WORKSPACE_ID) {
+  if (!LOG_ANALYTICS_HOST || !LOG_ANALYTICS_AGENT_KEY || !LOG_ANALYTICS_WORKSPACE_ID) {
     throw new Error(
-      "LOG_ANALYTICS_AGENT_KEY and LOG_ANALYTICS_WORKSPACE_ID are required"
+      "LOG_ANALYTICS_HOST, LOG_ANALYTICS_AGENT_KEY and LOG_ANALYTICS_WORKSPACE_ID are required"
     );
   }
   const client = new DataCollectorClient(
     LOG_ANALYTICS_WORKSPACE_ID,
-    LOG_ANALYTICS_AGENT_KEY
+    LOG_ANALYTICS_AGENT_KEY,
+    LOG_ANALYTICS_HOST
   );
 
   it("is able to send logs to Azure", async () => {
@@ -52,7 +53,8 @@ describe("The data collector client", () => {
   it("will return InvalidAuthorization error when authorization code is invalid", async () => {
     const client = new DataCollectorClient(
       LOG_ANALYTICS_WORKSPACE_ID,
-      "X" + LOG_ANALYTICS_AGENT_KEY
+      "X" + LOG_ANALYTICS_AGENT_KEY,
+      "x" + LOG_ANALYTICS_HOST
     );
     const res = await client.send("MyLogs", [
       {

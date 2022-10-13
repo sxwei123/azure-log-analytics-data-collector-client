@@ -1,6 +1,6 @@
 {
-  "name": "azure-log-analytics-data-collector",
-  "version": "2.2.11",
+  "name": "azure-log-analytics-data-collector-client",
+  "version": "2.2.9",
   "description": "Node.js wrapper for Azure Log Analytics data collector API",
   "main": "./dist/index.js",
   "exports": "./dist/index.js",
@@ -16,7 +16,7 @@
   "private": false,
   "repository": {
     "type": "git",
-    "url": "git://github.com/davesee/azure-log-analytics-data-collector-client"
+    "url": "git://github.com/sxwei123/azure-log-analytics-data-collector-client"
   },
   "keywords": [
     "Azure Monitor",

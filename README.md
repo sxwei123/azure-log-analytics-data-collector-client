@@ -27,7 +27,8 @@ const {
 
 const client = new DataCollectorClient(
   "WORKSPACE_ID",
-  "PRIMARY_KEY_OR_SECONDARY_KEY"
+  "PRIMARY_KEY_OR_SECONDARY_KEY",
+  "OPTIONAL_HOST"
 );
 
 client
@@ -47,7 +48,8 @@ import { DataCollectorClient } from "azure-log-analytics-data-collector-client";
 
 const client = new DataCollectorClient(
   "WORKSPACE_ID",
-  "PRIMARY_KEY_OR_SECONDARY_KEY"
+  "PRIMARY_KEY_OR_SECONDARY_KEY",
+  "OPTIONAL_HOST"
 );
 
 client
@@ -60,7 +62,11 @@ client
   .then(console.log);
 ```
 
-To get your `WORKSPACE_ID` and `PRIMARY_KEY_OR_SECONDARY_KEY`, in your workspace go to `advanced settings` -> `connected resources` -> `Agents management`.
+To get your `WORKSPACE_ID` and `PRIMARY_KEY_OR_SECONDARY_KEY`, in your workspace go to `Agents management` -> `Log Analytics agent instructions`.
+
+The `OPTIONAL_HOST` is available for the ODS endpoint for your workspace cloud.
+- Azure Public Cloud's `ods.opinsights.azure.com` is the default used if none is provided
+- [Azure US Government](https://learn.microsoft.com/en-us/azure/azure-government/compare-azure-government-global-azure)'s host has to be set to `ods.opinsights.azure.us`
 
 To query your logs, go to the `Logs` tab of your workspace and use `MyLogs_CL` as query table name. Sample query:
 

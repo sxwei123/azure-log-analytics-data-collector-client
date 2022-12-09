@@ -92,7 +92,7 @@ Please note that only alphanumeric and underscore can be used as table name. the
 To run the integration test locally, grab the workspace id and the agent key and then run:
 
 ```sh
-LOG_ANALYTICS_WORKSPACE_ID=<your_workspace_id> LOG_ANALYTICS_AGENT_KEY=<your_agent_key> yarn test
+LOG_ANALYTICS_WORKSPACE_ID=<your_workspace_id> LOG_ANALYTICS_AGENT_KEY=<your_agent_key> LOG_ANALYTICS_HOST=<your_private_host> yarn test
 ```
 
 ## License
